@@ -1981,6 +1981,8 @@ document.addEventListener('keydown', function(e) {
         est.querySelectorAll('.qb-pane-btn').forEach(function(b) { b.classList.remove('selected'); });
         est.querySelectorAll('.qb-pane-btn')[0].classList.add('selected');
       }
+    } else {
+      setTimeout(function() { qbNext(); }, 280);
     }
     updateQbNext();
   }
