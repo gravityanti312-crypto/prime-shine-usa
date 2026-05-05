@@ -1007,12 +1007,13 @@
       .qb-card:hover .qb-card-icon { color: rgba(255,255,255,0.85); }
       .qb-card:hover .qb-card-desc { color: rgba(255,255,255,0.75); }
     }
-    .qb-card.selected { border-color: #cc2020; background: rgba(204,32,32,0.07); }
+    .qb-card.selected { border-color: transparent; background: linear-gradient(135deg, #2d2a5e, #c0392b); color: white; border-radius: 12px; }
     .qb-card-icon { display: flex; justify-content: center; margin-bottom: 0.7rem; color: #9ca3af; }
-    .qb-card.selected .qb-card-icon { color: #cc2020; }
+    .qb-card.selected .qb-card-icon { color: white; }
     .qb-card-title { font-weight: 700; font-size: 0.92rem; color: #0f2544; margin-bottom: 0.2rem; }
     .qb-card-desc { font-size: 0.78rem; color: #9ca3af; }
-    .qb-card.selected .qb-card-desc { color: #cc2020; }
+    .qb-card.selected .qb-card-title { color: white; }
+    .qb-card.selected .qb-card-desc { color: rgba(255,255,255,0.75); }
     .qb-size-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.9rem; }
     .qb-size-card {
       border: 1.5px solid #e5e7eb; border-radius: 10px; padding: 1.1rem;
@@ -1022,7 +1023,7 @@
     @media (hover: hover) {
       .qb-size-card:hover { border-color: transparent; background: linear-gradient(135deg, #1e3164, #cc2020); color: white; }
     }
-    .qb-size-card.selected { border-color: #cc2020; background: rgba(204,32,32,0.07); color: #cc2020; }
+    .qb-size-card.selected { border-color: transparent; background: linear-gradient(135deg, #2d2a5e, #c0392b); color: white; }
     .qb-info-box {
       display: flex; align-items: flex-start; gap: 8px;
       background: #fff4e6; border: 1px solid #f5c518;
@@ -1048,7 +1049,7 @@
     @media (hover: hover) {
       .qb-pane-btn:hover { border-color: transparent; background: linear-gradient(135deg, #1e3164, #cc2020); color: white; }
     }
-    .qb-pane-btn.selected { border-color: #cc2020; background: rgba(204,32,32,0.05); color: #cc2020; }
+    .qb-pane-btn.selected { border-color: transparent; background: linear-gradient(135deg, #2d2a5e, #c0392b); color: white; }
     .qb-footer {
       background: white; border-top: 1px solid #e5e7eb;
       padding: 0.9rem 2rem; display: flex; justify-content: space-between;
