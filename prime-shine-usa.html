@@ -1001,10 +1001,12 @@
       padding: 1.4rem 1rem; text-align: center; cursor: pointer;
       transition: border-color 0.25s, background 0.25s, color 0.25s;
     }
-    .qb-card:hover { border-color: transparent; background: linear-gradient(135deg, #1e3164, #cc2020); color: white; }
-    .qb-card:hover .qb-card-title { color: white; }
-    .qb-card:hover .qb-card-icon { color: rgba(255,255,255,0.85); }
-    .qb-card:hover .qb-card-desc { color: rgba(255,255,255,0.75); }
+    @media (hover: hover) {
+      .qb-card:hover { border-color: transparent; background: linear-gradient(135deg, #1e3164, #cc2020); color: white; }
+      .qb-card:hover .qb-card-title { color: white; }
+      .qb-card:hover .qb-card-icon { color: rgba(255,255,255,0.85); }
+      .qb-card:hover .qb-card-desc { color: rgba(255,255,255,0.75); }
+    }
     .qb-card.selected { border-color: #cc2020; background: rgba(204,32,32,0.07); }
     .qb-card-icon { display: flex; justify-content: center; margin-bottom: 0.7rem; color: #9ca3af; }
     .qb-card.selected .qb-card-icon { color: #cc2020; }
@@ -1017,7 +1019,9 @@
       text-align: center; cursor: pointer; font-weight: 600; font-size: 0.92rem;
       color: #0f2544; transition: border-color 0.25s, background 0.25s, color 0.25s;
     }
-    .qb-size-card:hover { border-color: transparent; background: linear-gradient(135deg, #1e3164, #cc2020); color: white; }
+    @media (hover: hover) {
+      .qb-size-card:hover { border-color: transparent; background: linear-gradient(135deg, #1e3164, #cc2020); color: white; }
+    }
     .qb-size-card.selected { border-color: #cc2020; background: rgba(204,32,32,0.07); color: #cc2020; }
     .qb-info-box {
       display: flex; align-items: flex-start; gap: 8px;
@@ -1041,7 +1045,9 @@
     .qb-pane-text { font-size: 1.05rem; font-weight: 700; color: #0f2544; margin-bottom: 1.1rem; line-height: 1.55; }
     .qb-pane-btns { display: flex; gap: 0.75rem; }
     .qb-pane-btn { background: white; border: 1.5px solid #d1d5db; color: #374151; padding: 0.65rem 1.75rem; border-radius: 10px; font-weight: 600; font-size: 0.95rem; cursor: pointer; transition: border-color 0.25s, background 0.25s, color 0.25s; }
-    .qb-pane-btn:hover { border-color: transparent; background: linear-gradient(135deg, #1e3164, #cc2020); color: white; }
+    @media (hover: hover) {
+      .qb-pane-btn:hover { border-color: transparent; background: linear-gradient(135deg, #1e3164, #cc2020); color: white; }
+    }
     .qb-pane-btn.selected { border-color: #cc2020; background: rgba(204,32,32,0.05); color: #cc2020; }
     .qb-footer {
       background: white; border-top: 1px solid #e5e7eb;
@@ -1049,7 +1055,9 @@
       align-items: center; flex-shrink: 0;
     }
     .qb-btn-prev { background: white; border: 1.5px solid #d1d5db; color: #374151; padding: 0.65rem 1.4rem; border-radius: 50px; font-weight: 600; font-size: 0.9rem; cursor: pointer; transition: border-color 0.25s, background 0.25s, color 0.25s; display: flex; align-items: center; gap: 6px; }
-    .qb-btn-prev:hover { border-color: transparent; background: linear-gradient(135deg, #1e3164, #cc2020); color: white; }
+    @media (hover: hover) {
+      .qb-btn-prev:hover { border-color: transparent; background: linear-gradient(135deg, #1e3164, #cc2020); color: white; }
+    }
     .qb-btn-prev.hidden { visibility: hidden; }
     .qb-btn-next { background: linear-gradient(135deg, var(--blue), var(--purple)); color: white; border: none; padding: 0.65rem 1.6rem; border-radius: 50px; font-weight: 700; font-size: 0.9rem; cursor: pointer; transition: opacity 0.15s, box-shadow 0.15s; display: flex; align-items: center; gap: 6px; box-shadow: 0 4px 14px rgba(204,32,32,0.3); }
     .qb-btn-next:disabled { background: #d1d5db; color: #9ca3af; cursor: not-allowed; box-shadow: none; }
