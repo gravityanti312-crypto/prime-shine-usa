@@ -2022,11 +2022,33 @@ document.addEventListener('keydown', function(e) {
       }
     });
     if (!valid) return;
-    document.querySelectorAll('.qb-step').forEach(function(s) { s.classList.remove('active'); });
-    var suc = document.getElementById('qb-step-success');
-    if (suc) suc.classList.add('active');
-    var footer = document.getElementById('qb-footer');
-    if (footer) footer.style.display = 'none';
+
+    // Populate hidden quote data fields
+    var hType = document.getElementById('qbh-type'); if (hType) hType.value = qbData.propertyType || '';
+    var hCleaned = document.getElementById('qbh-cleaned'); if (hCleaned) hCleaned.value = qbData.lastCleaned || '';
+    var hFrench = document.getElementById('qbh-french'); if (hFrench) hFrench.value = qbData.frenchPanes || '';
+    var hSize = document.getElementById('qbh-size'); if (hSize) hSize.value = qbData.propertySize || '';
+
+    var nextBtn = document.getElementById('qb-next');
+    if (nextBtn) { nextBtn.disabled = true; nextBtn.textContent = 'Sending…'; }
+
+    fetch('https://formsubmit.co/ajax/primeshineusacare@gmail.com', {
+      method: 'POST',
+      headers: { 'Accept': 'application/json' },
+      body: new FormData(form)
+    })
+    .then(function(res) { return res.json(); })
+    .then(function() {
+      document.querySelectorAll('.qb-step').forEach(function(s) { s.classList.remove('active'); });
+      var suc = document.getElementById('qb-step-success');
+      if (suc) suc.classList.add('active');
+      var footer = document.getElementById('qb-footer');
+      if (footer) footer.style.display = 'none';
+    })
+    .catch(function() {
+      if (nextBtn) { nextBtn.disabled = false; nextBtn.textContent = 'Submit →'; }
+      alert('Something went wrong. Please call us at (602) 558-9990.');
+    });
   }
 
   document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeQuoteModal(); });
@@ -2202,38 +2224,45 @@ document.addEventListener('keydown', function(e) {
           </div>
           <div class="qb-form-title">Contact Information</div>
           <form id="qbForm" onsubmit="submitQbForm(event)">
+            <input type="hidden" name="_subject" value="New Quote Request — Prime Shine USA" />
+            <input type="hidden" name="_captcha" value="false" />
+            <input type="hidden" name="_template" value="table" />
+            <input type="hidden" name="Property Type" id="qbh-type" value="" />
+            <input type="hidden" name="Last Cleaned" id="qbh-cleaned" value="" />
+            <input type="hidden" name="French Panes" id="qbh-french" value="" />
+            <input type="hidden" name="Property Size" id="qbh-size" value="" />
             <div class="qb-form-grid">
               <div class="qb-field">
                 <label>First Name <span class="req">*</span></label>
-                <input type="text" placeholder="First Name" required />
+                <input type="text" name="First Name" placeholder="First Name" required />
               </div>
               <div class="qb-field">
                 <label>Last Name <span class="req">*</span></label>
-                <input type="text" placeholder="Last Name" required />
+                <input type="text" name="Last Name" placeholder="Last Name" required />
               </div>
               <div class="qb-field">
                 <label>Email Address <span class="req">*</span></label>
-                <input type="email" placeholder="Email" required />
+                <input type="email" name="Email" placeholder="Email" required />
               </div>
               <div class="qb-field">
                 <label>Phone Number <span class="req">*</span></label>
-                <input type="tel" placeholder="Phone Number" required />
+                <input type="tel" name="Phone" placeholder="Phone Number" required />
               </div>
               <div class="qb-field">
                 <label>Street Address <span class="req">*</span></label>
-                <input type="text" placeholder="Street Address" required />
+                <input type="text" name="Street Address" placeholder="Street Address" required />
               </div>
               <div class="qb-field">
                 <label>City <span class="req">*</span></label>
-                <input type="text" placeholder="City" required />
+                <input type="text" name="City" placeholder="City" required />
               </div>
               <div class="qb-field">
                 <label>State <span class="req">*</span></label>
-                <input type="text" placeholder="State" value="Arizona" required />
+                <input type="text" name="State" placeholder="State" value="Arizona" required />
               </div>
               <div class="qb-field">
                 <label>Zip Code <span class="req">*</span></label>
-                <input type="text" placeholder="Zip Code" required />
+                <input type="text" name="Zip Code" placeholder="Zip Code" required />
               </div>
             </div>
             <div class="qb-form-privacy">
