@@ -1990,6 +1990,7 @@ document.addEventListener('keydown', function(e) {
   function qbPaneConfirm(btn) {
     btn.closest('.qb-pane-btns').querySelectorAll('.qb-pane-btn').forEach(function(b) { b.classList.remove('selected'); });
     btn.classList.add('selected');
+    setTimeout(function() { qbNext(); }, 280);
   }
 
   function qbNext() {
